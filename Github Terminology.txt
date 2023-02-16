@@ -69,7 +69,6 @@ GIT COMMANDS:
 		 
 		 
 ==================================USED COMMANDS=======================
-
 git config --global user.name "Disendra"
 git config --global user.email "disendra123@gmail.com"
 git branch MyPersonal
