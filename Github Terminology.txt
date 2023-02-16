@@ -1,6 +1,5 @@
-
-Hii
-
+                                                    GITHUB NOTES
+    
 GIT Terminology:-
 
 REPOSITORY:-Group of projects are stored in single location and each project has on erepository
