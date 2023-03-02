@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Display Page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Data Display  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button onclick="window.location.href='about.html'"><h2>About Help</h2></button></h1> 
+   
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+      </tr>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      const email = urlParams.get('email');
+      const message = urlParams.get('message');
+
+      const tableBody = document.getElementById('table-body');
+
+      const row = document.createElement('tr');
+      const nameData = document.createElement('td');
+      const emailData = document.createElement('td');
+      const messageData = document.createElement('td');
+
+      nameData.textContent = name;
+      emailData.textContent = email;
+      messageData.textContent = message;
+
+      row.appendChild(nameData);
+      row.appendChild(emailData);
+      row.appendChild(messageData);
+
+      tableBody.appendChild(row);
+    </script>
+  </body>
+</html>
