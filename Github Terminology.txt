@@ -1,0 +1,79 @@
+                                                    GITHUB NOTES
+    
+GIT Terminology:-
+
+REPOSITORY:-Group of projects are stored in single location and each project has on erepository
+ -->CLONING:Remote repository to get it in local machine
+       (GIT CLONE URL)
+ -->FORK:Projects are copied from one account to another account
+ -->LOCAL REPOSITORY:Getting the remote repository in local machine
+ -->PUSH:Sending the local repository changes to remote repository
+ -->PULL:Sending the remote repository changes to local repository
+    
+   #Note:Git follows 2 types protocols
+          1.SSH
+		  2.HTTPS
+		  
+		  
+GITWORKFLOW:
+    
+	  Local Machine ==> Working Area(Red) ==> Index/Staging Area(Green) ==>
+	  Local Repository ==>Push to Remote Repository
+	  
+GIT COMMANDS:
+
+      ###ESC+:WQ ==>To esc from gitbash
+		
+	1.List the files
+	     LS
+		 
+	2.Go to the local repository
+	    CD (FILENAME)
+		
+	3.Files -->(Create/Modify) -->(Working Area)
+	   touch FileName (Empty Files)
+	   
+	4.To know the status
+	     GIT STATUS   
+	  # If the user in red color that is Working Area
+	  
+	5.To add file
+	    GIT ADD . /FILENAME/*
+	  #If the status is in green color that is Indexing/Staging Area
+	  
+	6.We are getting the files to local repository 
+	     GIT COMMIT -M '(MESSAGE)'
+		 
+    7.To know about git
+	     GIT LOG
+		 #40 digits commitID genearated 
+		 
+    8.To push the code to remote repositorY
+	   GIT PUSH ORIGIN MASTER
+	   #PUSH:Sending the changes from local to remote repositorY
+	   #ORIGIN:Alias Name-->GITHUB URL
+	   #MASTER:Default Branch
+	   
+	9.To merge the code in single file in local repository
+	   GIT FETCH ORIGIN MASTER
+	   
+	 
+	10.Undo the change in Working Area 
+	     -->GIT CHECKOUT (FILENAME)
+		 
+    11.Undo the changes in Stagging/Index Area
+	     -->GIT RESET (FILENAME) 
+		 
+    12.Undo the changes in local Repository after commit
+	     -->GIT RESET (COMMITID)
+		 
+		 
+==================================USED COMMANDS=======================
+git config --global user.name "Disendra"
+git config --global user.email "disendra123@gmail.com"
+git branch MyPersonal
+git checkout MyPersonal
+git add . / *
+git add commit -m "Message"
+git push origin MyPersonal
+git pull origin MyPersonal
