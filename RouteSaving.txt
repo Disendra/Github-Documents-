@@ -1,0 +1,46 @@
+To save the Routing Modules when You have to go another Module
+
+
+*RouteReuseStrategy.service.ts
+
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RouteReuseStrategyService implements RouteReuseStrategy {
+
+  private routeCache = new Map<string, DetachedRouteHandle>();
+
+  shouldDetach(route: ActivatedRouteSnapshot): boolean {
+    // Return true to allow the component to be detached and cached
+    return true;
+  }
+
+  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
+    // Store the detached component handle in the cache
+    this.routeCache.set(route.routeConfig.path, handle);
+  }
+
+  shouldAttach(route: ActivatedRouteSnapshot): boolean {
+    // Return true if the component is already cached
+    return this.routeCache.has(route.routeConfig.path);
+  }
+
+  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
+    // Retrieve the detached component handle from the cache
+    return this.routeCache.get(route.routeConfig.path);
+  }
+
+  shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    // Return true to indicate that the component should be reused
+    return future.routeConfig === curr.routeConfig;
+  }
+}
+
+App.Module.ts
+
+Providers:[
+{ provide: RouteReuseStrategy, useClass: RouteReuseStrategyService }
+  ],
